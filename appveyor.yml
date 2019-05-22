@@ -1,0 +1,8 @@
+image: Visual Studio 2017
+install:
+- appveyor DownloadFile "https://dot.net/v1/dotnet-install.ps1"
+- ps: "& ./dotnet-install.ps1 -Channel 2.2"
+build_script:
+- dotnet msbuild -t:Hello RoslyCodeTaskFactory.proj /bl:MSBuild.RoslyCodeTaskFactory.binlog
+on_finish:
+- ps: Get-ChildItem -File MSBuild.*.binlog | % { Push-AppveyorArtifact $_ -DeploymentName MSBuild-Binlog }
