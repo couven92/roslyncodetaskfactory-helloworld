@@ -5,7 +5,6 @@
   <UsingTask TaskName="HelloWorld" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
     <ParameterGroup />
     <Task>
-      <Reference Include="System.Xml"/>
       <Using Namespace="System"/>
       <Using Namespace="System.IO"/>
       <Code Type="Fragment" Language="cs">
